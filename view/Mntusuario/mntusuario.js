@@ -110,7 +110,7 @@ function desencriptar(usu_id){
                 $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id} ,function(data){
                     data= JSON.parse(data);
                     console.log(data);
-                    $('#us_id').val(data.usu_id);3
+                    $('#us_id').val(data.usu_id);
                     $('#desi').val(data.usu_pass);
                 });
                 $('#modaldes').modal('show');
