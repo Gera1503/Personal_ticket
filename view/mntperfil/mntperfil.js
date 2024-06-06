@@ -15,7 +15,7 @@ $(document).on("click", "#btnactualizar",function(){
     }else{
         swal("Error!","No coinciden las contraseñas","error");
     }
-
+                    
    } 
 
 });
