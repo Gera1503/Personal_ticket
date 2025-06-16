@@ -20,7 +20,7 @@
                 return $this->dbh->query("SET NAMES 'utf8'");
             }
             public function ruta(){
-                return "http://localhost/PERSONAL/";
+                return "http://localhost/Personal_ticket/";
 
             }
         }
