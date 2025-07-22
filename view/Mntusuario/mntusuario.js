@@ -93,40 +93,40 @@ $(document).ready(function(){
 });
 
 
-function desencriptar(usu_id){
-    $('#mdlkey').html('Desencirptar contraseña');
-    $('#modalkey').modal('show');
+// function desencriptar(usu_id){
+//     $('#mdlkey').html('Desencirptar contraseña');
+//     $('#modalkey').modal('show');
     
-    $(document).on("click", "#btnvalidar",function(){
-        let llave="llave1";
+//     $(document).on("click", "#btnvalidar",function(){
+//         let llave="llave1";
 
-        let key=$("#key").val();
+//         let key=$("#key").val();
        
-        if (key.length==0){
-            swal("Error!","LLave no ingresada","error");
-        }else {
-            if(llave == key){
-                $('#mdldtitulo').html('Contraseña Desencriptada');
-                $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id} ,function(data){
-                    data= JSON.parse(data);
-                    console.log(data);
-                    $('#us_id').val(data.usu_id);
-                    $('#desi').val(data.usu_pass);
-                });
-                $('#modaldes').modal('show');
-                $('#modalkey').modal('hide');
-                $('#key_form')[0].reset();
+//         if (key.length==0){
+//             swal("Error!","LLave no ingresada","error");
+//         }else {
+//             if(llave == key){
+//                 $('#mdldtitulo').html('Contraseña Desencriptada');
+//                 $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id} ,function(data){
+//                     data= JSON.parse(data);
+//                     console.log(data);
+//                     $('#us_id').val(data.usu_id);
+//                     $('#desi').val(data.usu_pass);
+//                 });
+//                 $('#modaldes').modal('show');
+//                 $('#modalkey').modal('hide');
+//                 $('#key_form')[0].reset();
 
     
-            }else{
-                swal("Error!","llave incorrecta","error");
-                $('#key_form')[0].reset(); 
-            }
-        }
+//             }else{
+//                 swal("Error!","llave incorrecta","error");
+//                 $('#key_form')[0].reset(); 
+//             }
+//         }
     
-    });     
+//     });     
 
-}
+// }
          
 
 function editar(usu_id){
@@ -140,8 +140,8 @@ function editar(usu_id){
        $('#usu_correo').val(data.usu_correo);
        $('#usu_pass').val(data.usu_pass);
        $('#rol_id').val(data.rol_id).trigger('change');
-       $('#user_idx').val(data.edit);
-
+       $('#user_edit').val(data.edit);
+       
     });
     $('#modaln').modal('show');
    
