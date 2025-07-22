@@ -4,9 +4,7 @@
 
     $usuario=  new Usuario();
     
-    $key="AGROS";
-    $cipher="aes-256-cbc";
-    $iv=openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
+    
 
 
      
@@ -36,8 +34,7 @@
                 $sub_array[]=$row["usu_nom"];
                 $sub_array[]=$row["usu_ape"];
                 $sub_array[]=$row["usu_correo"];
-
-                $sub_array[]=' <a onClick="desencriptar('.$row["usu_id"].');"><span class="label label-pill label-default">'.$row["usu_pass"].'</span></a> ';
+                $sub_array[]='<span class="label label-pill label-default">'.$row["usu_pass"].'</span>';
                 
                 
                 if($row["rol_id"]=="1"){
@@ -86,10 +83,11 @@
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
                     $output["usu_correo"] = $row["usu_correo"];
-                    $iv_dec = substr(base64_decode($row["usu_pass"]), 0, openssl_cipher_iv_length($cipher));
-                    $cifradoSinIV = substr(base64_decode($row["usu_pass"]),openssl_cipher_iv_length($cipher));
-                    $decifrado = openssl_decrypt($cifradoSinIV, $cipher,$key, OPENSSL_RAW_DATA, $iv_dec);
-                    $output["usu_pass"]= $decifrado;
+                    // $iv_dec = substr(base64_decode($row["usu_pass"]), 0, openssl_cipher_iv_length($cipher));
+                    // $cifradoSinIV = substr(base64_decode($row["usu_pass"]),openssl_cipher_iv_length($cipher));
+                    // $decifrado = openssl_decrypt($cifradoSinIV, $cipher,$key, OPENSSL_RAW_DATA, $iv_dec);
+                    // $output["usu_pass"]= $decifrado;
+                    $output["usu_pass"]= $row["usu_pass"];;
                     $output["rol_id"] = $row["rol_id"]; 
                     $output["edit"] = $row["edit"]; 
 
@@ -151,9 +149,9 @@
 
     break;
     // controlador para editar contraseña
-    case "password":
-            $usuario->update_usuario_pass($_POST["usu_id"],$_POST["usu_pass"]);
-    break;
+    // case "password":
+    //         $usuario->update_usuario_pass($_POST["usu_id"],$_POST["usu_pass"]);
+    // break;
         
          
 
