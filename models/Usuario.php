@@ -47,11 +47,12 @@
             parent::set_names();
             $sql="INSERT INTO tm_usuario (usu_id, usu_nom, usu_ape, usu_correo, usu_pass, rol_id, edit, fech_crea, fech_modi, fech_elim, est) VALUES (NULL, ?, ?, ?, ?,?,NULL, now(), NULL, NULL, '1')";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $usu_nom);
+            $sql->bindValue(1,$usu_nom);
             $sql->bindValue(2, $usu_ape);
             $sql->bindValue(3, $usu_correo);
             $sql->bindValue(4, $contrasena_encriptada);
             $sql->bindValue(5, $rol_id);
+            
             
 
            
