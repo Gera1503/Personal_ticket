@@ -49,7 +49,7 @@
                             <th style="width:10%;">Apellido</th>
                             <th class="d-done d-sm-table-cell" style="width:30%;">Correo</th>
                             <th class="d-done d-sm-table-cell" style="width:5%;">Contraseña</th>
-                            <th class="d-done d-sm-table-cell" style="width:5%;">Rol</th> 
+                            <th class="d-done d-sm-table-cell" style="width:5%;">Roles</th> 
                             <th class="text-center" style="width:5%;"></th>
                             <th style="width:10%;">Editado por</th> 
                             <th class="text-center" style="width:5%;"></th>
