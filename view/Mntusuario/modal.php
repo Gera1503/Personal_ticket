@@ -10,7 +10,6 @@
                 <form method="post" id="usuario_form">
                     <div class="modal-body">
                         <input type="hidden" id="usu_id" name="usu_id">
-                        <input type="hidden" id="usu_edit" name="usu_edit">
 
                         <div class="form-group">
                             <label class="form-label" for="usu_nom">Nombre</label>

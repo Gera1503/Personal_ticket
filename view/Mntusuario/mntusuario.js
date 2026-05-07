@@ -132,7 +132,7 @@ $(document).ready(function(){
 function editar(usu_id){
     
     $('#mdltitulo').html('Editar Registro');
-    $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id} ,function(data){
+    $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id,} ,function(data){
        data= JSON.parse(data);
        $('#usu_id').val(data.usu_id);
        $('#usu_nom').val(data.usu_nom);
@@ -140,7 +140,6 @@ function editar(usu_id){
        $('#usu_correo').val(data.usu_correo);
        $('#usu_pass').val(data.usu_pass);
        $('#rol_id').val(data.rol_id).trigger('change');
-       $('#user_edit').val(data.edit);
        
     });
     $('#modaln').modal('show');

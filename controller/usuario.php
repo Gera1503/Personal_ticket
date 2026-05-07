@@ -19,7 +19,7 @@
                     
         }else{
            
-            $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_edit"]);
+            $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
             }
 
         
@@ -44,15 +44,6 @@
                 }
                 
                 $sub_array[]='<button type="button" onClick="editar('.$row["usu_id"].');" id="'.$row["usu_id"].'" class="btn btn-warning btn-icon"><div><i class="fa fa-edit"></i></div></button>'; 
-
-                if($row["edit"]==null){
-                    $sub_array[]='<span class="label label-pill label-warning">No editado</span> ';
-                }else{
-                    $datos1=$usuario->get_usuario_x_id($row["edit"]);
-                    foreach($datos1 as $row1){
-                        $sub_array[]='<span class="label label-pill label-success">'.$row1["usu_nom"].'</span> ';
-                    }
-                }
                 $sub_array[]='<button type="button" onClick="eliminar('.$row["usu_id"].');" id="'.$row["usu_id"].'" class="btn btn-danger btn-icon"><div><i class="fa fa-trash"></i></div></button>';              
                 $data[] = $sub_array;
                 
@@ -83,14 +74,8 @@
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
                     $output["usu_correo"] = $row["usu_correo"];
-                    // $iv_dec = substr(base64_decode($row["usu_pass"]), 0, openssl_cipher_iv_length($cipher));
-                    // $cifradoSinIV = substr(base64_decode($row["usu_pass"]),openssl_cipher_iv_length($cipher));
-                    // $decifrado = openssl_decrypt($cifradoSinIV, $cipher,$key, OPENSSL_RAW_DATA, $iv_dec);
-                    // $output["usu_pass"]= $decifrado;
                     $output["usu_pass"]= $row["usu_pass"];;
                     $output["rol_id"] = $row["rol_id"]; 
-                    $output["edit"] = $row["edit"]; 
-
 
                 }
                 echo json_encode($output);
